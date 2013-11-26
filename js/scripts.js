@@ -86,7 +86,7 @@ var genius = {
 							genius.printWeather(data);
 					        //print play list
 					        var generes = weatherMap[data.weather[0].id];
- 		 					//genius.printPlayList(generes);   
+ 		 					genius.printPlayList(generes);   
 					  }
 					},"jsonp");
 		 		 		

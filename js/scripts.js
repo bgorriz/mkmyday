@@ -54,6 +54,24 @@ var weatherMap = {
 804:"soul" 	//overcast clouds	
   }
 
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 10, // The length of each line
+  width: 5, // The line thickness
+  radius: 15, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: 'auto', // Top position relative to parent in px
+  left: 'auto' // Left position relative to parent in px
+};
 
 
 var genius = {
@@ -75,6 +93,7 @@ var genius = {
  	},
  	getWeather: function(city){	
 			var uri= 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&callback=test'
+			
 			uri=encodeURI(uri); 
 			console.log(uri);
 			//Call weather
@@ -86,7 +105,8 @@ var genius = {
 							genius.printWeather(data);
 					        //print play list
 					        var generes = weatherMap[data.weather[0].id];
- 		 					genius.printPlayList(generes);   
+ 		 					genius.printPlayList(generes);  
+ 		 					
 					  }
 					},"jsonp");
 		 		 		
@@ -94,12 +114,15 @@ var genius = {
 
 
 	printPlayList: function(entrada){ 
+		var target = document.getElementById('spin');
+			var spinner = new Spinner(opts).spin(target);
 		SC.get("/tracks", {limit: 500, genres: entrada}, function(tracks){
 			var tracklist = new Array(10);
 			for (var i = 1; i <=10; i++){
 	      		tracklist[i-1] = tracks[Math.floor(Math.random()*100)];
 	      		SC.oEmbed(tracklist[i-1].uri, document.getElementById("track"+i));	       		
        		}
+       		spinner.stop(); 
     	});
 	},
 

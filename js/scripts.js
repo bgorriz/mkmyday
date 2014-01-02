@@ -81,23 +81,24 @@ var genius = {
     	client_id: "7aac801076c5fc36f0b4e330079e187c"
  	 	});
 
-	 $(".form-wrapper").on('submit',this.makeMagic);	 
+	 $(".navbar-form").on('submit',this.makeMagic);	 
 	},
 
 	makeMagic: function(event){
 	 	 event.preventDefault();
-	 	 var my_city=$("#textField").val();
+	 	 var my_city=$("#srch-term").val();
 	 	 console.log("val "+my_city);
-		var current =genius.getWeather(my_city);
+		genius.getWeather(my_city);
+		
 		 		 		
  	},
  	getWeather: function(city){	
-			var uri= 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&callback=test'
+			var uri= 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric&callback=test'
 			
 			uri=encodeURI(uri); 
 			console.log(uri);
 			//Call weather
-			return jQuery.get(uri,function(data,event){
+			jQuery.get(uri,function(data,event){
 					 if(data.error) { 
 					   alert(data.error[0].msg);
 					  } else {
@@ -114,8 +115,11 @@ var genius = {
 
 
 	printPlayList: function(entrada){ 
-		var target = document.getElementById('spin');
+		var target = document.getElementById('loading');
 			var spinner = new Spinner(opts).spin(target);
+			console.log("estoy aqui");			
+				$( ".intro" ).remove();
+		
 		SC.get("/tracks", {limit: 500, genres: entrada}, function(tracks){
 			var tracklist = new Array(10);
 			for (var i = 1; i <=10; i++){
@@ -131,7 +135,7 @@ var genius = {
 		var max = data.main.temp_max;
 		var min = data.main.temp_min;
 		var city = data.name;
-		var desc = data.weather[0].description;
+		var desc = data.weather[0].description;		
 	}
 
 };

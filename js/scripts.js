@@ -88,9 +88,7 @@ var genius = {
 	 	 event.preventDefault();
 	 	 var my_city=$("#srch-term").val();
 	 	 console.log("val "+my_city);
-		genius.getWeather(my_city);
-		
-		 		 		
+		genius.getWeather(my_city);		 		 		
  	},
  	getWeather: function(city){	
 			var uri= 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric&callback=test'
@@ -135,7 +133,15 @@ var genius = {
 		var max = data.main.temp_max;
 		var min = data.main.temp_min;
 		var city = data.name;
-		var desc = data.weather[0].description;		
+		var desc = data.weather[0].description;
+		$('#weather-info').empty();
+		var maxText =  '<p class="navbar-text" id="max">Max: '+max+' º </p>';
+		var minText = '<p class="navbar-text" id="min">Min: '+min+' º</p>';
+		var descText = '<p class="navbar-text" id="Desc">'+desc+' at '+city+'</p>';
+		$('#weather-info').append(descText);
+		$('#weather-info').append(maxText);
+		$('#weather-info').append(minText);
+
 	}
 
 };

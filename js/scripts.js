@@ -81,11 +81,19 @@ var genius = {
     	client_id: "7aac801076c5fc36f0b4e330079e187c"
  	 	});
 
-	 $(".navbar-form").on('submit',this.makeMagic);	 
+	 $("#searcher").on('submit',this.makeMagic);
+	 $("#searcher2").on('submit',this.makeMagic2);	 
 	},
 
+	makeMagic2: function(event){
+	 	 event.preventDefault();	 	 
+	 	 var my_city=$("#srch-term2").val();
+	 	 console.log("val "+my_city);
+		genius.getWeather(my_city);		 		 		
+ 	},
+
 	makeMagic: function(event){
-	 	 event.preventDefault();
+	 	 event.preventDefault();	 	 
 	 	 var my_city=$("#srch-term").val();
 	 	 console.log("val "+my_city);
 		genius.getWeather(my_city);		 		 		

@@ -32,7 +32,7 @@
           </div>
           <div class="collapse navbar-collapse">
              <div class="col-sm-3 col-md-3 nav-left">
-                <form class="navbar-form" role="search">
+                <form class="navbar-form" role="search" id="searcher">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Enter location" name="srch-term" id="srch-term">
                       <div class="input-group-btn">
@@ -58,7 +58,12 @@
             <h1>Enjoy the weather!</h1>
           </div>
         <p class="lead">Make my day is a web service that selects music for you depending on your local weather.</p>
-        <p>Search for your location to get a playlist and enjoy your day.</p>
+        <form class="form-search" role="search" id="searcher2">
+          <div class="input-append">
+          <input type="text" class="span2 search-query" placeholder="Search for your location, get a playlist and enjoy your day!" name="srch-term" id="srch-term2" style="width: 55%">
+               <button class="btn btn-default"  type="submit">Go!</button>
+          </div>
+        </form>
         </div>        
        <div id="content">          
         <div id="track1"></div>

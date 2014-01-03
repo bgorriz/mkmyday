@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function() {
 
     var front = document.getElementById('navbar')
     , back_content = "<h2>Hi!</h2><p>This is make my day. A project made to learn a bit about javascript and web design. See you!</p><button id='closeCard'>&laquo; Back</button>"
@@ -12,4 +12,4 @@ window.onload = function () {
         });        
     });
                        
-    };
+    });

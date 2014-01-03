@@ -113,10 +113,8 @@ var genius = {
 
 
 	printPlayList: function(entrada){ 
-		var target = document.getElementById('loading');
-			var spinner = new Spinner(opts).spin(target);
-			console.log("estoy aqui");			
-				$( ".intro" ).remove();
+		var loading = '<div id="loading" style="position:absolute;top:0;left:0;right:0;bottom:0;height:100%;"></div>'
+		$( ".intro" ).remove();
 		
 		SC.get("/tracks", {limit: 500, genres: entrada}, function(tracks){
 			var tracklist = new Array(10);
@@ -124,7 +122,6 @@ var genius = {
 	      		tracklist[i-1] = tracks[Math.floor(Math.random()*100)];
 	      		SC.oEmbed(tracklist[i-1].uri, document.getElementById("track"+i));	       		
        		}
-       		spinner.stop(); 
     	});
 	},
 

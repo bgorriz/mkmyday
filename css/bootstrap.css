@@ -21,6 +21,13 @@ summary {
   display: block;
 }
 
+
+@font-face {
+  font-family: 'PacificRegular';
+  src: url('../fonts/pacific.eot');
+  src: local('Pacific Regular'), local('Pacific'), url('../fonts/pacific.ttf') format('truetype');
+}
+
 audio,
 canvas,
 video {
@@ -4502,6 +4509,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand {
     margin-left: -15px;
+    font-family: 'PacificRegular';
+    font-size: 26px;
   }
 }
 

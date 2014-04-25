@@ -4720,6 +4720,7 @@ position: absolute;
 
 .navbar-default .navbar-brand {
   color: #777777;
+  font-family: 'PacificRegular';
 }
 
 .navbar-default .navbar-brand:hover,
